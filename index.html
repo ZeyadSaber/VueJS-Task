@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<title>Vue.js</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div id="sabora">
+	<h1>To-Do List</h1><br><br>
+	<input type="text" name="toAdd" v-model="inputField" v-on:keyup.enter="addTodo(inputField)">
+	<button @click="addTodo(inputField)">Add</button>
+	<button @click="search(inputField)">Search</button>
+	<ul>
+		<li v-for="(item, index) in items" :class='{hideItems}'>{{item.message}} <i class="fa fa-close" v-on:click='del(index)'></i></li>
+	</ul>
+	<ul>
+		<li v-for="(item, index) in srch" :class='{hideSrch}'>{{item.found}} <i class="fa fa-close" v-on:click='del(index)'></i></li>
+	</ul>
+<!-- 	<p>Welcome {{name}} to Vue.js</p>
+	<p>Age: {{age}}</p>
+	<p>City: {{city}}</p>
+	<p>{{welcome(name)}}</p>
+<h1 v-if="name != 'saber'">Vue is awesome!</h1>
+<h1 v-else>You entered else</h1> -->
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="vue.js"></script>
+</body>
+</html>
